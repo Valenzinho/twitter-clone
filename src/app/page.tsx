@@ -1,6 +1,6 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { AuthButton } from "@/components/auth-button";
+import { AuthButton } from "@/app/components/auth-button";
 
 export default async function Home() {
   // Pasamos cookies directamente como una función
