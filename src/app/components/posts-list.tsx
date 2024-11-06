@@ -1,5 +1,5 @@
 import PostCard from './post-card'
-import { type Post } from '@/app/types/posts'
+import { type Post } from '../types/posts'
 
 export function PostLists ({ posts }: { posts: Post[] | null }) {
   return (
