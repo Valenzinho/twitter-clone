@@ -17,7 +17,7 @@ export default async function Home() {
 
   const { data: posts } = await supabase
     .from("posts")
-    .select("*, users(name, avatar_url, user_name)")
+    .select("*, user:users(name, avatar_url, user_name)")
 
   return (
     <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
