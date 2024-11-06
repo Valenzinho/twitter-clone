@@ -2,7 +2,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { AuthButtonServer } from "./components/auth-button-server";
-import PostCard from "./components/post-card";
+import { PostLists } from "./components/posts-list";
 import { user } from "@nextui-org/react";
 
 export default async function Home() {
@@ -21,31 +21,11 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-      <AuthButtonServer />
       
-        {
-          posts?.map(post => {
-
-            const {
-              id, 
-              user,
-              content
-            } = post
-
-            const {
-              user_name: userName,
-              name: userFullName,
-              avatar_url: avatarUrl,
-            } = user
-            
-            return (
-              <PostCard
-                {...{ content, userName, userFullName, avatarUrl }}
-                key={id}
-              />
-            )
-          })
-        }
+      <section className="max-w-[600px] w-full mx-auto border-l border-r border-white/20 min-h-screen">
+        <AuthButtonServer />
+        <PostLists posts={posts} />
+      </section>
      
     </main>
   );
